@@ -2,5 +2,12 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
+from . import forms
+
+from . import models
+
 def home(request):
-    return HttpResponse("<h1> Learning image upload in django </h1>")
+    form = forms.UploadForm()
+    return render(request, 'upload/home.html', {
+        "form": form
+    })
